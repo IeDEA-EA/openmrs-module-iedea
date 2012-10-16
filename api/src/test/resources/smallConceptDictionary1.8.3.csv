@@ -1,0 +1,288 @@
+Concept Id,Name,Description,Synonyms,Answers,Set Members,Class,Datatype,Changed By,Creator
+1,"ANEMIA, BLOOD LOSS","Anemia due to bleeding or a hemorrhagic process.","ANEMIA, BLOOD LOSS","","","Diagnosis","N/A","Super User","Super User"
+2,"ANEMIA, HEMOLYSIS","Anemia, due to the destruction or dissolution of red blood cells, with subsequent release of hemoglobin.","ANEMIA, HEMOLYSIS","","","Diagnosis","N/A","Super User","Super User"
+3,"ANEMIA","Anemia not due to other causes listed within the system.","ANAEMIA
+ANEMIA
+ANEMIA NOS","","","Diagnosis","N/A","Super User","Super User"
+4,"ASTHMA EXACERBATION","An abrupt and/or progressive worsening of symptoms of shortness of breath, wheezing, chest tightness, or some combination of these with associated respiratory distress.","ASTHMA RELAPSE
+ASTHMA EXACERBATION","","","Diagnosis","N/A","Super User","Super User"
+5,"ASTHMA","A chronic respiratory disease, arising from allergies or inflammation, that is characterized by sudden recurring attacks of labored breathing, chest constriction, and coughing.","ASTHMA NOS
+ASTHMA","","","Diagnosis","N/A","Super User","Super User"
+7,"GALLSTONES","Small, hard, pathological concretions, composed chiefly of cholesterol, calcium salts, and bile pigments, formed in the gallbladder or in a bile duct.","GALLSTONES
+BILIARY TRACT DISEASE, GALLSTONES","","","Diagnosis","N/A","Super User","Super User"
+8,"BILIARY TRACT DISEASE NOT OTHERWISE SPECIFIED","Gallbladder or biliary duct problems not specified.","BILIARY TRACT DISEASE NOT OTHERWISE SPECIFIED
+BILIARY TRACT DISEASE NOS","","","Diagnosis","N/A","Super User","Super User"
+10,"BRONCHITIS, ACUTE","Lower respiratory infection of the bronchial tubes, acute.","BRONCHITIS, ACUTE
+ACUTE BRONCHITIS","","","Diagnosis","N/A","Super User","Super User"
+11,"BRONCHITIS, RECURRENT","Lower respiratory infection of the bronchial tubes, recurrent.","RECURRENT BRONCHITIS
+BRONCHITIS, RECURRENT","","","Diagnosis","N/A","Super User","Super User"
+12,"X-RAY, CHEST","An examination using irradiation for imaging the chest.","X-RAY, CHEST
+CHEST XRAY
+X-RAY CHEST
+CXR","NORMAL
+PULMONARY EFFUSION
+MILIARY CHANGES
+EVIDENCE OF CARDIAC ENLARGEMENT
+OTHER NON-CODED
+INFILTRATE
+DIFFUSE NON-MILIARY CHANGES
+CAVITARY LESION","","Test","Coded","Super User","Super User"
+14,"DIARRHEA, AMOEBIASIS","Diarrhea due to amoebic infection.","AMOEBIC DIARRHOEA
+AMOEBIC DYSENTRY
+DIARRHEA, AMOEBIASIS","","","Diagnosis","N/A","Super User","Super User"
+16,"DIARRHEA","Diarrhea due to an unspecified cause.","DIARRHOEA
+DIARRHEA NOS
+DIARRHEA","","","Diagnosis","N/A","Super User","Super User"
+17,"DIPTHERIA TETANUS BOOSTER","Vaccination against diptheria and tetanus (IM).","DIPTHERIA TETANUS BOOSTER
+TD BOOSTER","","","Drug","N/A","Super User","Super User"
+21,"HEMOGLOBIN","The iron-containing respiratory pigment in red blood cells of vertebrates, consisting of about 6 percent heme and 94 percent globin.","HB
+HEMOGLOBIN
+HGB
+HGB","","","Test","Numeric","Super User","Super User"
+22,"HEPATITIS A VACCINATION","Vaccination against hepatitis A (IM).","HEPATITIS A VACCINATION
+HEPA
+HEP A","","","Drug","N/A","Super User","Super User"
+26,"HEPATITIS A","Liver infection with hepatitis A virus (""infectious hepatitis"").","HEPATITIS A","","","Diagnosis","N/A","Super User","Super User"
+27,"HEPATITIS B","Liver infection with hepatitis B virus (""serum hepatitis"").","HEPATITIS B","","","Diagnosis","N/A","Super User","Super User"
+28,"HEPATITIS C","Liver infection with hepatitic C virus.","HEPATITIS C","","","Diagnosis","N/A","Super User","Super User"
+29,"HEPATITIS","Liver infection with an unknown organism or unspecified non-infectious liver inflammation.","HEPATITIS NOS
+HEPATITIS","","","Diagnosis","N/A","Super User","Super User"
+31,"SERVICES ORDERED","Services requested during a clinical encounter.","SERVICES
+SERVICES ORDERED","","REFERRALS ORDERED","ConvSet","N/A","Super User","Super User"
+32,"MALARIAL SMEAR","Peripheral smear study for malarial parasites is the gold standard in diagnosing malarial infection. It involves collection of a blood smear, staining and examination of the the red blood cells for intracellular malarial parasites.","MP TEST
+MALARIAL SMEAR
+BS FOR MPS","NEGATIVE
+POSITIVE
+INDETERMINATE","","Test","Coded","Super User","Super User"
+36,"MEASLES VACCINATION","Vaccination against measles (IM).","MEASLES VACCINATION","","","Drug","N/A","Super User","Super User"
+37,"MENSTRUAL DYSFUNCTION","Unspecified problems with menstruation.  These could include things such as amenorrhea, polymenorrhea, etc.","MENSTRUAL DYSFUNCTION","","","Diagnosis","N/A","Super User","Super User"
+42,"PNEUMONIA, TUBERCULOUS","An acute or chronic disease marked by inflammation of the lungs and caused by by mycobacterium tuberculosis.","PNEUMONIA, TUBERCULOUS
+PULMONARY TB
+PTB
+TB PNEUMONIA","","","Diagnosis","N/A","Super User","Super User"
+43,"PNEUMONIA","An acute or chronic disease marked by inflammation of the lungs and caused by viruses, bacteria, or other microorganisms and sometimes by physical and chemical irritants.  Organism is unspecified in this concept.","PNEUMONIA
+PNEUMONIA NOS","","","Diagnosis","N/A","Super User","Super User"
+44,"PREGNANCY","The period from conception to birth when a woman carries a developing fetus in her uterus.","GESTATION
+PREGNANCY","","","Diagnosis","N/A","Super User","Super User"
+45,"URINE PREGNANCY TEST","Test that determines pregnancy status through measure of hormone content in urine.","URINE PREGNANCY TEST","POOR SAMPLE QUALITY
+NEGATIVE
+POSITIVE
+INDETERMINATE","","Test","Coded","Super User","Super User"
+46,"PREGNANCY, ECTOPIC","Implantation and subsequent development of a fertilized ovum outside the uterus, as in a fallopian tube.","PREGNANCY, ECTOPIC","","","Diagnosis","N/A","Super User","Super User"
+47,"PREGNANCY, HYPERTENSION ASSOCIATED","Pregnancy with an associated diastolic blood pressure of 90 mmHg.","PREGNANCY-INDUCED HYPERTENSION
+PREECLAMPSIA
+TOXEMIA
+PREGNANCY, HYPERTENSION ASSOCIATED
+PIH","","","Diagnosis","N/A","Super User","Super User"
+48,"PREGNANCY, MISCARRIAGE","Pregnancy terminated by a spontaneous abortion.","PREGNANCY, MISCARRIAGE","","","Diagnosis","N/A","Super User","Super User"
+49,"POSTPARTUM HEMORRHAGE","Vaginal bleeding that occurs following an infant delivery.","POSTPARTUM HEMORRHAGE","","","Diagnosis","N/A","Super User","Super User"
+50,"PREGNANCY, TERMINATION","The intentional, premature expulsion of a nonviable fetus from the uterus.","ABORTION
+PREGNANCY, TERMINATION","","","Diagnosis","N/A","Super User","Super User"
+54,"TETANUS BOOSTER","Booster vaccination against tetanus.","TT2
+TETANUS BOOSTER
+TT1
+TETANUS TOXOID","","","Drug","N/A","Super User","Super User"
+55,"URINARY TRACT INFECTION","Bacterial infection of the bladder, ureter, and/or kidney.","UTI
+URINARY TRACT INFECTION","","","Diagnosis","N/A","Super User","Super User"
+56,"URINE MICROSCOPY","Evalution of urine under the microscope, usually for cells, crystals, and/or infecting organisms.","URINE MICROSCOPY","","","Test","Coded","Super User","Super User"
+57,"YELLOW FEVER","An acute destructive disease of warm regions marked by sudden onset, prostration, fever, albuminuria, jaundice, and often hemorrhage. Caused by a flavivirus (genus Flavivirus) transmitted especially by a mosquito of the genus Aedes (A. aegypti).","YELLOW JACK
+YELLOW FEVER","","","Diagnosis","N/A","Super User","Super User"
+58,"TUBERCULOSIS","An infection with the bacteria mycobacterium tuberculosis, site not specified.","TB
+TUBERCULOSIS NOS
+TUBERCULOSIS","","","Diagnosis","N/A","Super User","Super User"
+60,"MENINGITIS, NOS","Infection of the spinal fluid and meninges.","MENINGITIS, NOS","","","Diagnosis","N/A","Super User","Super User"
+63,"MEASLES","Infection with measles virus, with characteristic rash and Koplek spots in mouth.","MEASLES","","","Diagnosis","N/A","Super User","Super User"
+64,"MUMPS","Infection with mumps virus, usually involving the parotid glands.","MUMPS","","","Diagnosis","N/A","Super User","Super User"
+68,"MALNUTRITION","Inadequate oral intake of unspecified nutrients (eg, calories, protein, vitamins, etc.)","MALNUTRITION","","","Diagnosis","N/A","Super User","Super User"
+70,"CATARACT","Opacification of the eye lens.","CATARACT","","","Diagnosis","N/A","Super User","Super User"
+71,"EAR DISORDERS","Set of ear infection concepts.","EAR DISORDERS","","OTITIS EXTERNA
+OTITIS MEDIA","ConvSet","N/A","Super User","Super User"
+75,"NEOPLASM","Unspecified growths (tumors), benign or malignant.","NEOPLASM","","","Diagnosis","N/A","Super User","Super User"
+77,"MENTAL DISORDERS","Unspecified disorders of cognition (thinking ability) and/or emotions.  Any of various conditions characterized by impairment of an individual's normal cognitive, emotional, or behavioral functioning, and caused by social, psychological, biochemical, genetic, or other factors, such as infection or head trauma.","MENTAL DISORDERS","","DEMENTIA
+DEMENTIA, SENILE
+DEPRESSION
+DEPRESSIVE EPISODE
+PSYCHOSIS
+SCHIZOPHRENIA","ConvSet","N/A","Super User","Super User"
+78,"DENTAL DISORDERS","unspecified problems of the teeth and/or gums (eg, infection, tooth decay, tooth loss)","DENTAL DISORDERS","","DENTAL CARIES
+GINGIVITIS","ConvSet","N/A","Super User","Super User"
+79,"SKIN DISORDERS","Unspecified problems of the skin (eg, rashes, infections)","SKIN DISORDERS","","BURN
+CELLULITIS
+DERMATITIS
+DERMATITIS, ALLERGIC
+DERMATOPHYTOSIS
+LACERATION
+TINEA CAPITIS
+WOUND, DEEP
+WOUND, SEPTIC","ConvSet","N/A","Super User","Super User"
+80,"JOINT PAIN","Unspecified problems with pain and motion of the joints and/or muscles.","RHEUMATISM
+JOINT PAIN","","","Finding","N/A","Super User","Super User"
+81,"CONGENITAL DISORDERS","unspecified problems present at birth","CONGENITAL ANOMALIES
+CONGENITAL DISORDERS","","","ConvSet","N/A","Super User","Super User"
+83,"TOXICITY, NOT OTHERWISE SPECIFIED","Unspecified ingestion, inhalation, or other exposure to a toxic substance","POISONING NOS
+TOXICITY, NOT OTHERWISE SPECIFIED
+TOXICITY NOS","","","Diagnosis","N/A","Super User","Super User"
+84,"ACCIDENT, NOT OTHERWISE SPECIFIED","Traffic accident of specified type but victim's mode of transport unknown.","ACCIDENT NOS
+ACCIDENT, NOT OTHERWISE SPECIFIED","","","Diagnosis","N/A","Super User","Super User"
+86,"ACCIDENT, MOTOR VEHICLE","Injury and/or trauma due to motor vehicle accident.","RTA
+MOTOR VEHICLE ACCIDENT
+MVA
+ROAD TRAFFIC ACCIDENT
+ACCIDENT, MOTOR VEHICLE","","","Diagnosis","N/A","Super User","Super User"
+87,"SULFADOXINE AND PYRIMETHAMINE","Sulfa drug-pyrimethamine combinations are highly active blood schizonticides against P. falciparum but are less effective against other Plasmodium species.","SULFADOXINE AND PYRIMETHAMINE
+FANSIDAR","","","Drug","N/A","Super User","Super User"
+88,"ASPIRIN","Drug used for pain relief, fever, and antiplatelet actions.","ASPIRIN
+ASA","","","Drug","N/A","Super User","Super User"
+89,"PARACETAMOL","A crystalline compound C8H9NO2 that is a hydroxy derivative of acetanilide and is used in chemical synthesis and in medicine instead of aspirin to relieve pain and fever.","CALPOL
+PARACETAMOL SYRUP
+PARACETAMOL
+ACETOMINOPHEN
+PANADOL","","","Drug","N/A","Super User","Super User"
+91,"TRIMETHOPRIM","Antibiotic most often used for urinary tract infections.","TRIMETHOPRIM","","","Drug","N/A","Super User","Super User"
+92,"DAPSONE","Antiparasitic agent most often used for leprosy, malaria, and pneumocystis carinii pneumonia infections.","DAPSONE","","","Drug","N/A","Super User","Super User"
+94,"BETADINE","Topical antiseptic used to sterilize skin for invasive procedures.","BETADINE","","","Drug","N/A","Super User","Super User"
+95,"DOXYCYCLINE","A broad-spectrum tetracycline antibiotic C22H24N2O8 with potent antibacterial activity that is often taken by travelers as a prophylactic against diarrhea.","DOXYCYCLINE","","","Drug","N/A","Super User","Super User"
+96,"MEFLOQUINE","Antibiotic used in malaria prophylaxis and treatment.","LARIAM
+MEFLOQUINE","","","Drug","N/A","Super User","Super User"
+97,"PROGUANIL","Antibiotic used in malaria prophylaxis and treatment.","PROGUANIL","","","Drug","N/A","Super User","Super User"
+98,"CHLOROQUINE","Antibiotic used in malaria prophylaxis and treatment.","CHLOROQUINE","","","Drug","N/A","Super User","Super User"
+99,"FUROSEMIDE","Diuretic that works mainly upon the loop of Henle.","FUROSEMIDE
+LASIX","","","Drug","N/A","Super User","Super User"
+100,"GENTAMICIN","Antibiotic (IV, topical) used for gram-negative infections.","GENTAMICIN
+GENTAMYCIN","","","Drug","N/A","Super User","Super User"
+101,"X-RAY, ABDOMEN","An examination using irradiation for imaging the abdomen.","ABDOMINAL XRAY
+X-RAY, ABDOMEN
+X-RAY ABDOMEN
+ABDOMINAL X-RAY
+KUB","ABNORMAL
+NORMAL","","Test","Coded","","Super User"
+102,"TOXICITY, DRUG","Adverse reaction to a drug (oral, parenteral, topical).","TOXICITY, DRUG
+DRUG TOXICITY
+DRUG POISONING","","","Diagnosis","N/A","Super User","Super User"
+105,"INTRAVENOUS DRUG USE","Administering illicit drugs through direct needle injection.  A method of spread of HIV.","INTRAVENOUS DRUG USE","","","Finding","N/A","Super User","Super User"
+106,"RESPIRATORY TRACT INFECTION, UPPER","Upper respiratory tract infection.","URI
+URTI
+COMMON COLD
+CORYZA
+RESPIRATORY TRACT INFECTION, UPPER","","","Diagnosis","N/A","Super User","Super User"
+107,"COUGH","To expel air from the lungs suddenly and noisily, often to keep the respiratory passages free of irritating material.","COUGH","","","Symptom/Finding","N/A","Super User","Super User"
+108,"BRONCHOSPASM","A contraction of smooth muscle in the walls of the bronchi and bronchioles, causing narrowing of the lumen.","BRONCHOSPASM","","","Symptom","N/A","Super User","Super User"
+109,"WOUND, SEPTIC","Infected wound.","SEPTIC LESIONS
+WOUND, SEPTIC","","","Diagnosis","N/A","Super User","Super User"
+110,"LACERATION","The process or act of tearing tissue.","LAC
+LACERATION
+WOUND, CUT","","","Diagnosis","N/A","Super User","Super User"
+111,"DYSPEPSIA","A disorder of digestive function characterized by discomfort or heartburn or nausea.","DYSPEPSIA
+INDIGESTION
+HEARTBURN","","","Symptom/Finding","N/A","Super User","Super User"
+112,"TONSILLITIS","Inflammation of the tonsils of varying degrees of severity and involving simple inflammation.  Associated with acute pharyngitis, streptococcus infection, or formation of an abscess (as quinsy).","TONSILLITIS
+TONSILITIS","","","Diagnosis","N/A","Super User","Super User"
+113,"FURUNCULOSIS","A skin condition characterized by the development of recurring boils.","FURUNCULOSIS","","","Diagnosis","N/A","Super User","Super User"
+114,"OTITIS MEDIA","Infection of the middle ear.","OTITIS MEDIA
+OM","","","Diagnosis","N/A","Super User","Super User"
+115,"MASTITIS","Inflammation of the mammary gland, usually caused by infection.","MASTITIS
+MASTADENTITIS
+MAMMITIS","","","Diagnosis","N/A","Super User","Super User"
+116,"ARTHRITIS","Inflammation of a joint, usually accompanied by pain, swelling, and stiffness, and resulting from infection, trauma, degenerative changes, metabolic disturbances, or other causes. It occurs in various forms, such as bacterial arthritis, osteoarthritis, or rheumatoid arthritis.","ARTHRITIS
+ARTHRITIS NOS","","","Diagnosis","N/A","Super User","Super User"
+117,"CONJUNCTIVITIS","Infection of the outer lining of the eye.","CONJUNCTIVITIS
+PINK EYE","","","Diagnosis","N/A","Super User","Super User"
+119,"DERMATITIS","Inflammation of the skin.","DERMATITIS NOS
+DERMATITIS","","","Finding","N/A","Super User","Super User"
+120,"DERMATITIS, ALLERGIC","Inflammation of the skin due to allergic reaction.","ALLERGIC RASH
+ALLERGIC DERMATITIS
+RASH ALLERGIC
+DERMATITIS, ALLERGIC","","","Diagnosis","N/A","Super User","Super User"
+121,"MYALGIA","Muscular pain or tenderness, especially when diffuse and nonspecific.","MYALGIA","","","Finding","N/A","Super User","Super User"
+123,"MALARIA","An infectious disease characterized by cycles of chills, fever, and sweating, caused by a protozoan of the genus Plasmodium in red blood cells, which is transmitted to humans by the bite of an infected female anopheles mosquito.","MALARIA
+PRESUMED
+CLINICAL MALARIA
+FUNTIME
+CLINICAL
+MALARIA","","","Diagnosis","N/A","Super User","Super User"
+124,"AMOEBIASIS","Intestinal infection with amoebae.","AMOEBIASIS","","","Diagnosis","N/A","Super User","Super User"
+125,"HEAD INJURY","Trauma to the head and skull region, unspecified.","HEAD INJURY","","","Diagnosis","N/A","Super User","Super User"
+126,"GINGIVITIS","Infection of the gums.","GINGIVITIS","","","Diagnosis","N/A","Super User","Super User"
+127,"DYSMENORRHOEA","Pain with menstrual periods.","DYSMENORRHEA
+DYSMENORRHOEA","","","Finding","N/A","Super User","Super User"
+128,"WOUND, DEEP","Penetrating wound.","OPEN WOUND
+WOUND, DEEP
+WOUND, PRICK
+DEEP WOUND","","","Diagnosis","N/A","Super User","Super User"
+130,"PUERPERAL SEPSIS","An abnormal condition that results from infection of the placental site following delivery or abortion and is characterized in mild form by fever of not over 100.4F","PUERPERAL SEPSIS
+PEURPERAL FEVER
+CHILDBED FEVER","","","Diagnosis","N/A","Super User","Super User"
+131,"DENTAL CARIES","Infection of the teeth.","DENTAL CARIES
+CAVITIES
+CAVITY","","","Diagnosis","N/A","Super User","Super User"
+133,"GOITER","A noncancerous enlargement of the thyroid gland, visible as a swelling at the front of the neck, that is often associated with iodine deficiency.","THYROMEGALY
+STRUMA
+GOITER","","","Finding","N/A","Super User","Super User"
+134,"CELLULITIS","Superficial bacterial infection of the skin.","CELLULITIS","","","Diagnosis","N/A","Super User","Super User"
+135,"BURN","Bodily injury resulting from exposure to heat, caustics, electricity, or some radiations, marked by varying degrees of skin destruction and hyperemia. Classified according to the extent and degree of the injury.","BURN NOS
+BURN","","","Diagnosis","N/A","Super User","Super User"
+136,"CHEST PAIN","Chest tightness, pressure or discomfort.","CHEST PAIN","","","Symptom/Finding","N/A","Super User","Super User"
+138,"ABSCESS","Cutaneous abscess, furuncle and carbuncle, unspecified","ABSCESS","","","Diagnosis","N/A","Super User","Super User"
+139,"VAGINITIS","Infection of the vagina.","VAGINITIS
+COLPITIS","","","Diagnosis","N/A","Super User","Super User"
+140,"SCABIES","A contagious skin disease caused by a parasitic mite (Sarcoptes scabiei) and characterized by intense itching.","SCABIES","","","Diagnosis","N/A","Super User","Super User"
+141,"TYPHOID FEVER","An acute, highly infectious disease caused by a bacillus (Salmonella typhi) transmitted chiefly by contaminated food or water and characterized by high fever, headache, coughing, intestinal hemorrhaging, and rose-colored spots on the skin.","TYPHOID FEVER
+ENTERIC FEVER","","","Diagnosis","N/A","Super User","Super User"
+142,"ALLERGY","Unspecified allergic reaction.","ALLERGIC REACTION
+ALLERGY","","","Diagnosis","N/A","Super User","Super User"
+144,"TINEA CAPITIS","An infection of the scalp caused by fungi of the genera Microsporum or Trichophyton, characterized by itchy, scaly patches and sometimes hair loss.","TINEA CAPITIS
+RINGWORM OF THE SCALP
+SCALP RINGWORM","","","Diagnosis","N/A","Super User","Super User"
+145,"LABOR PAIN","Pain and discomfort associated with contractions of the uterus during labor.","LABOR PAIN","","","Diagnosis","N/A","Super User","Super User"
+147,"BRONCHITIS","Inflammation of the bronchial tubes, usually with cough.","BRONCHITIS","","","Diagnosis","N/A","Super User","Super User"
+148,"INJURY","Unspecified physical damage to the body caused by violence or accident or fracture.","INJURY NOS
+INJURY","","","Diagnosis","N/A","Super User","Super User"
+149,"CERVICITIS","Inflammation of the cervix of the uterus.","CERVICITIS","","","Diagnosis","N/A","Super User","Super User"
+150,"PHARYNGITIS","Unspecified inflammation of the oropharynx.","PHARYNGITIS NOS
+PHARYNGITIS","","","Diagnosis","N/A","Super User","Super User"
+151,"ABDOMINAL PAIN","Pain in the abdomen, unspecified cause.","ABDOMINAL PAIN","","","Symptom","N/A","Super User","Super User"
+155,"EPILEPSY","Any of various neurological disorders characterized by sudden recurring attacks of motor, sensory, or psychic malfunction with or without loss of consciousness or convulsive seizures.","EPILEPSY","","","Diagnosis","N/A","Super User","Super User"
+159,"DECEASED","Patient died.","DECEASED","","","Diagnosis","N/A","Super User","Super User"
+160,"BRUCELLOSIS","An infectious bacterial disease of humans that is caused by brucellae, transmitted by contact with infected animals, and characterized by fever, malaise, and headache.","BRUCELLOSIS
+MEDITEREANEAN FEVER
+UNDULANT FEVER","","","Diagnosis","N/A","Super User","Super User"
+161,"LYMPHADENOPATHY","Enlarged, firm, or otherwise abnormal lymph nodes usually associated with disease.","LYMPHADENOPATHY
+ADENOPATHY","","","Finding","N/A","Super User","Super User"
+162,"POLYMENORRHEA","The occurrence of menstrual cycles at frequency that is higher than normal.","POLYMENORRHEA","","","Finding","N/A","Super User","Super User"
+163,"FOREIGN BODY","Residual foreign body in soft tissue.","FOREIGN BODY","","","Diagnosis","N/A","Super User","Super User"
+165,"SEXUAL ASSAULT","Rape, attempted rape, or other unwanted sexual contact.","SEXUAL ASSAULT","","","Diagnosis","N/A","Super User","Super User"
+166,"BITE, DOG","Bitten by a dog.","BITE, DOG","","","Diagnosis","N/A","Super User","Super User"
+167,"BITE, ANIMAL","Bitten by an unspecified animal.","BITE, ANIMAL","","","Diagnosis","N/A","Super User","Super User"
+168,"BITE, HUMAN","Bitten by a human.","BITE, HUMAN","","","Diagnosis","N/A","Super User","Super User"
+171,"FUNGAL INFECTION","unspecified infection with a fungus","FUNGAL INFECTION NOS
+FUNGAL INFECTION","","","Diagnosis","N/A","Super User","Super User"
+172,"GASTRITIS","Chronic or acute inflammation of the stomach, especially of the mucous membrane of the stomach.","GASTRITIS","","","Diagnosis","N/A","Super User","Super User"
+173,"EPISTAXIS","Bleeding from the nose.","EPISTAXIS
+NOSEBLEED","","","Finding","N/A","Super User","Super User"
+174,"SEXUALLY TRANSMITTED INFECTION","Other predominantly sexually transmitted diseases, not elsewhere classified.","STI
+STI,FEMALES
+SEXUALLY TRANSMITTED INFECTION","","","Diagnosis","N/A","Super User","Super User"
+175,"DIABETES MELLITUS","A variable disorder of carbohydrate metabolism caused by a combination of hereditary and environmental factors and usually characterized by inadequate secretion or utilization of insulin, by excessive urine production, by excessive amounts of sugar in the blood and urine, and by thirst, hunger, and loss of weight.","DM
+DIABETES MELLITUS","","","Diagnosis","N/A","Super User","Super User"
+176,"ASSAULT","The act or an instance of unlawfully threatening or attempting to injure another.","ASSAULT NOS
+ASSAULT","","","Diagnosis","N/A","Super User","Super User"
+177,"FRACTURE","A break, rupture, or crack, especially in bone or cartilage.","FRACTURE
+FRACTURE NOS","","","Diagnosis","N/A","Super User","Super User"
+178,"FRACTURE, COLLES","Fracture of lower end of both ulna and radius.","FRACTURE, COLLES
+COLLES FRACTURE","","","Diagnosis","N/A","Super User","Super User"
+180,"SHOULDER DISLOCATION","Dislocation of the glenohumeral joint of the shoulder.","SHOULDER DISLOCATION","","","Diagnosis","N/A","Super User","Super User"
+181,"CONTAMINATED NEEDLE STICK","Accidental exposure to a contaminant through intravenous needle injection.","CONTAMINATED NEEDLE STICK","","","Finding","N/A","Super User","Super User"
+182,"CYST","An abnormal membranous sac containing a gaseous, liquid, or semisolid substance.","CYST
+CYST NOS","","","Finding","N/A","Super User","Super User"
+185,"CHOLECYSTITIS","Pain and inflammation of the gall bladder.","CHOLECYSTITIS","","","Diagnosis","N/A","Super User","Super User"
+190,"CONDOMS","Methods for preventing pregnancy.","CONDOMS","","","Drug","N/A","Super User","Super User"
+193,"BRONCHOPNEUMONIA","A pneumonia involving inflammation of the lungs that spreads from and after infection of the bronchi.","PNEUMONIA BRONCHIAL
+BRONCHOPNEUMONIA","","","Diagnosis","N/A","Super User","Super User"
+197,"GASTROENTERITIS","unspecified illness with nausea, vomiting, and/or diarrhoea","DYSENTRY
+DIARRHOEA AND GASTROENTERITIS OF PRESUMED INFECTIOUS ORIGIN
+DYSENTERY
+GASTROENTERITIS","","","Diagnosis","N/A","Super User","Super User"
+198,"CHOLERA","Vibrio infection of the colon causing massive watery diarrhoea.","CHOLERA","","","Diagnosis","N/A","Super User","Super User"
+199,"HELMINTHIASIS","A disease caused by infestation with parasitic worms.","WORMS NOS
+WORMS, INTESTINAL
+HELMINTHIASIS","","","Diagnosis","N/A","Super User","Super User"
