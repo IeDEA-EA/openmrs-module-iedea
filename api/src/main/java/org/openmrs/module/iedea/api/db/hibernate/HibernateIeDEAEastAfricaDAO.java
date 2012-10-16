@@ -16,27 +16,40 @@ package org.openmrs.module.iedea.api.db.hibernate;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;
+import org.openmrs.module.iedea.ImportLogItem;
 import org.openmrs.module.iedea.api.db.IeDEAEastAfricaDAO;
 
 /**
  * It is a default implementation of  {@link IeDEAEastAfricaDAO}.
  */
 public class HibernateIeDEAEastAfricaDAO implements IeDEAEastAfricaDAO {
-	protected final Log log = LogFactory.getLog(this.getClass());
+    protected final Log log = LogFactory.getLog(this.getClass());
 	
-	private SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 	
-	/**
+    /**
      * @param sessionFactory the sessionFactory to set
      */
     public void setSessionFactory(SessionFactory sessionFactory) {
-	    this.sessionFactory = sessionFactory;
+        this.sessionFactory = sessionFactory;
     }
     
-	/**
+    /**
      * @return the sessionFactory
      */
     public SessionFactory getSessionFactory() {
-	    return sessionFactory;
+        return sessionFactory;
+    }
+
+    @Override
+	public int getImportLogCount() {
+        Long i = (Long) sessionFactory.getCurrentSession().createQuery(
+                                                                       "select count(*) from ImportLogItem").uniqueResult();
+        return i.intValue();
+    }
+
+    @Override
+	public void saveOrUpdate(ImportLogItem item) {
+        sessionFactory.getCurrentSession().saveOrUpdate(item);
     }
 }

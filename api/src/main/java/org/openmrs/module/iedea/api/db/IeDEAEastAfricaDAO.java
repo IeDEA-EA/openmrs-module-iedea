@@ -13,6 +13,7 @@
  */
 package org.openmrs.module.iedea.api.db;
 
+import org.openmrs.module.iedea.ImportLogItem;
 import org.openmrs.module.iedea.api.IeDEAEastAfricaService;
 
 /**
@@ -20,7 +21,7 @@ import org.openmrs.module.iedea.api.IeDEAEastAfricaService;
  */
 public interface IeDEAEastAfricaDAO {
 	
-	/*
-	 * Add DAO methods here
-	 */
+    /* ODK Import Methods Below */
+    public int getImportLogCount();
+    public void saveOrUpdate(ImportLogItem item);
 }

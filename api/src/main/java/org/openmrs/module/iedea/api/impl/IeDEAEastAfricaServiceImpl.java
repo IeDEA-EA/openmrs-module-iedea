@@ -13,9 +13,12 @@
  */
 package org.openmrs.module.iedea.api.impl;
 
+import org.openmrs.api.context.Context;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openmrs.module.iedea.DictionaryCSVImport;
+import org.openmrs.module.iedea.IeDEAConstants;
 import org.openmrs.module.iedea.api.IeDEAEastAfricaService;
 import org.openmrs.module.iedea.api.db.IeDEAEastAfricaDAO;
 
@@ -23,22 +26,43 @@ import org.openmrs.module.iedea.api.db.IeDEAEastAfricaDAO;
  * It is a default implementation of {@link IeDEAEastAfricaService}.
  */
 public class IeDEAEastAfricaServiceImpl extends BaseOpenmrsService implements IeDEAEastAfricaService {
-	
-	protected final Log log = LogFactory.getLog(this.getClass());
-	
-	private IeDEAEastAfricaDAO dao;
-	
-	/**
+
+    protected final Log log = LogFactory.getLog(this.getClass());
+
+    private IeDEAEastAfricaDAO dao;
+
+    /**
      * @param dao the dao to set
      */
     public void setDao(IeDEAEastAfricaDAO dao) {
-	    this.dao = dao;
+        this.dao = dao;
     }
-    
+
     /**
      * @return the dao
      */
     public IeDEAEastAfricaDAO getDao() {
-	    return dao;
+        return dao;
     }
+
+    public String getImportLogDir() {
+        return Context.getAdministrationService().getGlobalProperty(
+                                                                    IeDEAConstants.IMPORT_FILE_DIR_GP);
+    }
+
+    @Override
+        public int importLoadingDockFiles() {
+        // 1. Look up the physical files we need to import
+        // 2. For each file, run it through parser according to it's spec
+        // 3. 
+        return 0;
+    }
+
+    @Override
+        public void importConceptDictionaryCSV() {
+        //DictionaryCSVImport dictImport = new DictionaryCSVImport();
+        //dictImport.importFromCSV();
+    }
+
+
 }

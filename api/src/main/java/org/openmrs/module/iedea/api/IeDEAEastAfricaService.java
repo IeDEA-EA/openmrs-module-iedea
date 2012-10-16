@@ -1,6 +1,6 @@
 /**
  * The contents of this file are subject to the OpenMRS Public License
- * Version 1.0 (the "License"); you may not use this file except in
+ * Version 1.0 (the "License"); you m3ay not use this file except in
  * compliance with the License. You may obtain a copy of the License at
  * http://license.openmrs.org
  *
@@ -14,6 +14,7 @@
 package org.openmrs.module.iedea.api;
 
 import org.openmrs.api.OpenmrsService;
+import org.openmrs.module.iedea.api.db.IeDEAEastAfricaDAO;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -27,10 +28,26 @@ import org.springframework.transaction.annotation.Transactional;
  * @see org.openmrs.api.context.Context
  */
 @Transactional
-public interface IeDEAEastAfricaService extends OpenmrsService {
-     
-	/*
-	 * Add service methods here
-	 * 
-	 */
+    public interface IeDEAEastAfricaService extends OpenmrsService {
+    
+    public String getImportLogDir();
+	
+    /*
+     * Add service methods here
+     * 
+     */
+    public IeDEAEastAfricaDAO getDao();
+
+    /**
+     * Process the files recorded as being part of the FacesODKImport and return
+     * the number of *new* records entered. (Does not include duplicates 
+     * already in the database.
+     * @return Number of new records added to the database.
+     */
+    public int importLoadingDockFiles();
+	
+    /**
+     * Import a CSV export Concept Dictionary
+     */
+    public void importConceptDictionaryCSV();
 }

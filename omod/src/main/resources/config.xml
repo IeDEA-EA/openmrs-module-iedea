@@ -26,6 +26,16 @@
 		<class>${project.parent.groupId}.${project.parent.artifactId}.extension.html.AdminList</class>
 	</extension>
 	
+	<!-- Required Global Properties --> 
+	<globalProperty>
+		<property>iedea.importFileDirectory</property>
+		<defaultValue></defaultValue>
+		<description>
+			Directory on the filesystem where we will dump ODK Files for import
+			in to OpenMRS.
+		</description>
+	</globalProperty>
+	
 	<!-- Maps hibernate file's, if present -->
 	<mappingFiles>
 				

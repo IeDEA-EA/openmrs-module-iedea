@@ -13,9 +13,6 @@
  */
 package org.openmrs.module.iedea;
 
-
-import org.apache.commons.logging.Log; 
-import org.apache.commons.logging.LogFactory;
 import org.openmrs.module.ModuleActivator;
 
 /**
@@ -23,48 +20,46 @@ import org.openmrs.module.ModuleActivator;
  */
 public class IeDEAEastAfricaActivator implements ModuleActivator {
 	
-	protected Log log = LogFactory.getLog(getClass());
-		
 	/**
 	 * @see ModuleActivator#willRefreshContext()
 	 */
 	public void willRefreshContext() {
-		log.info("Refreshing IeDEA East Africa Module");
+//		log.info("Refreshing IeDEA East Africa Module");
 	}
 	
 	/**
 	 * @see ModuleActivator#contextRefreshed()
 	 */
 	public void contextRefreshed() {
-		log.info("IeDEA East Africa Module refreshed");
+//		log.info("IeDEA East Africa Module refreshed");
 	}
 	
 	/**
 	 * @see ModuleActivator#willStart()
 	 */
 	public void willStart() {
-		log.info("Starting IeDEA East Africa Module");
+//		log.info("Starting IeDEA East Africa Module");
 	}
 	
 	/**
 	 * @see ModuleActivator#started()
 	 */
 	public void started() {
-		log.info("IeDEA East Africa Module started");
+//		log.info("IeDEA East Africa Module started");
 	}
 	
 	/**
 	 * @see ModuleActivator#willStop()
 	 */
 	public void willStop() {
-		log.info("Stopping IeDEA East Africa Module");
+//		log.info("Stopping IeDEA East Africa Module");
 	}
 	
 	/**
 	 * @see ModuleActivator#stopped()
 	 */
 	public void stopped() {
-		log.info("IeDEA East Africa Module stopped");
+//		log.info("IeDEA East Africa Module stopped");
 	}
 		
 }

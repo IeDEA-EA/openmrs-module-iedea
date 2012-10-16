@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
- 
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
-                  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
-    <!--
-        See http://www.liquibase.org/manual/home#available_database_refactorings
-        for a list of supported elements and attributes
-    -->
-    
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+  <!--
+      See http://www.liquibase.org/manual/home#available_database_refactorings
+      for a list of supported elements and attributes
+  -->
+
+  <changeSet author="sgithens" id="20120919-1427">
+    <comment>ODK Import Log</comment>
+    <createTable tableName="iedea_odkimportlog">
+      <column name="id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+      <column name="uuid" type="varchar(38)" />
+      <column name="status" type="varchar(255)" />
+      <column name="message" type="varchar(255)" />
+    </createTable>
+  </changeSet>
+  
 </databaseChangeLog>
