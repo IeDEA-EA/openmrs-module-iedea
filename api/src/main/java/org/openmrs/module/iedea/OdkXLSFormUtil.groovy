@@ -7,10 +7,12 @@ import org.openmrs.Patient
 import org.openmrs.Encounter
 import org.openmrs.PatientIdentifier
 import org.openmrs.Location
+import org.openmrs.Obs
 import org.openmrs.api.context.Context
 import org.openmrs.module.iedea.api.IeDEAEastAfricaService
 import org.apache.commons.logging.Log
 import org.apache.commons.logging.LogFactory
+
 
 public class OdkImportRow {
     def uuid, patient 
@@ -20,6 +22,7 @@ public class OdkImportRow {
         this.uuid = uuid
     }
 }
+
 
 /**
  * This class will read an Excel XLSForm of the schema that is used by the
@@ -31,7 +34,9 @@ public class OdkImportRow {
  * OpenMRS. 
  *
  */
-public class OdkXLSFormUtil {
+public class OdkXLSFormUtil {    
+    def DEBUG_BLANK_ENCOUNTER_UUIDS = true
+    
     def log = LogFactory.getLog(this.getClass());
     def iedeaService;
 
@@ -171,22 +176,45 @@ public class OdkXLSFormUtil {
      * @param odkImportRow The row from the ODK Aggregate export to import.
      */
     def sendOdkImportRowToOpenMRS(OdkImportRow odkImportRow) {
+        def conceptServ = Context.getConceptService()
+        def obsServ = Context.getObsService()
+        def locServ = Context.getLocationService()
+        def location = locServ.getLocation(1)
+        
         def importUtil = new ImportUtil()
+        
         // First make sure we've got the encounter types loaded in.
         // We may want to move to this to the bulk version of this code (rather
         // than checking every time).
         importUtil.initializeIedeaEncounterTypes()
         
-        // TODO Properly create a patient
-        def patient = createPatient()
+        // TODO Properly create a patient if they do not exist
+        //def patient = createPatient()
+        def patientServ = Context.getPatientService()
+        def patient = patientServ.getPatients(odkImportRow.patient)[0]
         
         def encType = importUtil.getIedeaEncounterType("facesInitial")
         
         def encounter = createEncounter(patient,encType)
         
-        //odkImportRow.eachWithIndex { val, idx ->
-        //    
-        //}
+        if (!DEBUG_BLANK_ENCOUNTER_UUIDS) {
+            encounter.setUuid(odkImportRow.uuid)
+        }
+        encounter.setLocation(location)
+        
+        odkImportRow.obs.eachWithIndex { val, idx ->
+            if (val instanceof java.util.List && val[0] == "coded") {
+                def question = conceptServ.getConcept(val[1])
+                def answer = conceptServ.getConcept(val[2])
+                // Get a proper location
+                def obs = new Obs(patient, question, new Date(), location)
+                obs.setValueCoded(answer)
+                obsServ.saveObs(obs, "New Obs")
+                encounter.addObs(obs)
+            }
+        }
+        def encServ = Context.getEncounterService()
+        encServ.saveEncounter(encounter);
         
     }
     
@@ -259,9 +287,12 @@ public class OdkXLSFormUtil {
             togo.push(odkEncounter)
         }
         
-        println "Via Information: ${aggregateHeaderMapping['l603']}"
-                
         return togo
+    }
+    
+    public void runOdkImportForOneFile(String filepath) {
+        def rows = parseAggregateExport(filepath)
+        sendOdkImportRowsToOpenMRS(rows);
     }
     
     public void runEntireImportProcess() {

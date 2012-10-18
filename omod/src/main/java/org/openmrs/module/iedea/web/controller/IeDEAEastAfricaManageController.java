@@ -107,4 +107,16 @@ public class  IeDEAEastAfricaManageController {
         RedirectView rv = new RedirectView("/openmrs/module/iedea/manage.form");
         return rv;	    
     }
+    
+    @RequestMapping(value = "/module/iedea/odkImportOperation.form",
+            method = RequestMethod.POST)
+    public RedirectView odkImportOperation(Model model,
+        @RequestParam("odkCsvExportFilePath") String odkCsvExportFilePath) {
+        System.out.println("ODK SIngle file export: " + odkCsvExportFilePath);
+        OdkXLSFormUtil odk = new OdkXLSFormUtil();
+        odk.runOdkImportForOneFile(odkCsvExportFilePath);
+        System.out.println("Done with ODK Single file export.");
+        RedirectView rv = new RedirectView("/openmrs/module/iedea/manage.form");
+        return rv;        
+    }
 }

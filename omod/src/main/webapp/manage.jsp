@@ -22,4 +22,11 @@
   <input type="submit" value="Submit operation" />
 </form>
 
+<h2>Odk Import Test Options</h2>
+<form method="POST" action="odkImportOperation.form">
+  <span>Import File Location:</span><br/>
+  <input type="text" name="odkCsvExportFilePath" size="50" /><br/>
+  <input type="submit" value="Submit operation" />
+</form>
+
 <%@ include file="/WEB-INF/template/footer.jsp"%>
