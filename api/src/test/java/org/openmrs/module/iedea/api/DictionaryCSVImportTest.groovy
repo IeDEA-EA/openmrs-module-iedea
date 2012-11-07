@@ -46,14 +46,13 @@ class DictionaryCSVImportTest extends BaseModuleContextSensitiveTest {
         assertEquals(25, concepts.size())
 
         def dictImport = new DictionaryCSVImport()
-        dictImport.importFromCSV()
-
+        dictImport.importFromCSV("classpath:///defaultConceptDictionary1.8.3.csv");
+           
         def moreConcepts = conService.getAllConcepts()
         assertTrue(moreConcepts.size() > 100)
 
         def skindis = conService.getConcept(79)
         assertEquals("SKIN DISORDERS",skindis.getName().getName())
-        //assertEquals("Unspecified problems of the skin (eg, rashes, infections)",skindis.getDescription().getDescription())
     }
 
 }

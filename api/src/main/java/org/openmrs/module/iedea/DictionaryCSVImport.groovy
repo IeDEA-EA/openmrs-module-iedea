@@ -13,8 +13,10 @@ import java.util.Locale
  * @author sgithens
  */
 public class DictionaryCSVImport {
-
+    
     /**
+     * 
+     * 
      * The headers we get from the csv are:
      * 0 Concept Id
      * 1 Name
@@ -29,13 +31,12 @@ public class DictionaryCSVImport {
      1,"ANEMIA, BLOOD LOSS","Anemia due to bleeding or a hemorrhagic process.","ANEMIA, BLOOD LOSS","","","Diagnosis","N/A","Super User","Super User"
      * @return
      */
-    public void importFromCSV (String filePath) {
+    public void importFromCSV (datasource) {
+        def iedeaUtil = new IeDEAUtil()
+        def dataReader = iedeaUtil.getReader(datasource)
+        
         def conService = Context.getConceptService()
-
-        if (filePath == null) {
-            filePath = "/home/sgithens/code/openmrs-module-iedea/api/src/test/resources/defaultConceptDictionary1.8.3.csv"
-        }
-        def reader = new CSVReader(new FileReader(filePath))
+        def reader = new CSVReader(dataReader)
         def String [] headerLine = reader.readNext()
         def String [] nextLine
         while ((nextLine = reader.readNext()) != null) {

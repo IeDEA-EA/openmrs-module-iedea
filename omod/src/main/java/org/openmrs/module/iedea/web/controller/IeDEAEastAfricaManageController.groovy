@@ -15,7 +15,7 @@ package org.openmrs.module.iedea.web.controller;
 
 import java.util.List;
 import java.util.Map;
-
+import javax.servlet.http.HttpSession;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
@@ -80,15 +80,24 @@ public class  IeDEAEastAfricaManageController {
     public RedirectView dictionaryOperation(
             @RequestParam("op") String op,
             @RequestParam("importCsvPath") String importCsvPath,
-            Model model
+            Model model,
+            HttpSession session
             ) {
         DictionaryCSVImport dict = new DictionaryCSVImport();
 
         if (op.equals("purgeDictOp")) {
-            dict.purgeAllConcepts();
+            dict.purgeAllConcepts()
         } 
         else if (op.equals("importCsvOp")) {
-            dict.importFromCSV(importCsvPath);
+            dict.importFromCSVFile(importCsvPath)
+        }
+        else if (op.equals("buildAmpathDictionary")) {
+            dict.purgeAllConcepts()
+            dict.importFromCSVResource("/iedea-dictionaries/ampath-original-conceptDictionary161012_954.csv")
+        }
+        else if (op.equals("buildFacesDictionary")) {
+            dict.purgeAllConcepts()
+            dict.importFromCSVResource("/iedea-dictionaries/faces-original-conceptDictionary28912_1116.csv")
         }
         else {
             System.out.println("IeDEA: Unknown Operation");

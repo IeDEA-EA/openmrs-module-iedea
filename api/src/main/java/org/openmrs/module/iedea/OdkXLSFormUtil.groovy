@@ -35,6 +35,7 @@ public class OdkImportRow {
  *
  */
 public class OdkXLSFormUtil {    
+    
     def DEBUG_BLANK_ENCOUNTER_UUIDS = true
     
     def log = LogFactory.getLog(this.getClass());
@@ -88,9 +89,13 @@ public class OdkXLSFormUtil {
         return togo
     }
 
-    def Workbook openWorkbook(xlsFileName) {
-        def xlsFileNameStatic = "/home/sgithens/code/openmrs-module-iedea/api/src/test/resources/CCSPS08_ElectronicInitialVisitForm_v7.xls"
-        def workbook = new HSSFWorkbook(new FileInputStream(xlsFileNameStatic));
+    def Workbook openWorkbook(xlsDataSource) {
+        if (xlsDataSource == null) {
+            throw new IllegalArgumentException("Must include an XLS Form Data Source to compute mappings with.")
+        }
+        def iedeaUtil = new IeDEAUtil()
+        def stream = iedeaUtil.getInputStream(xlsDataSource) 
+        def workbook = new HSSFWorkbook(stream)
         return workbook
     }
 
@@ -229,14 +234,20 @@ public class OdkXLSFormUtil {
      * a map where each item is one of the encounter rows by it's ODK UUID, and
      * the list is a list of operations.
      * 
+     * You must include at least one of dataFileName or dataResourceName, as 
+     * these include the data that is being imported. So it can be either a 
+     * filename on the local file system, or it can be a classpath resource.
+     * 
      * @return
      */
-    def List<OdkImportRow> parseAggregateExport(filename=null,xlsformFilename=null) {
+    def List<OdkImportRow> parseAggregateExport(datasource,xlsFormDataSource) {
+        def iedeaUtil = new IeDEAUtil()
+        
         //
         // Build Up Metadata Mapping from Excel File
         //
         def togo = []
-        def workbook = openWorkbook()
+        def workbook = openWorkbook(xlsFormDataSource)
         def colMappings = getExcelColumnMapping(workbook)
         def sheet = workbook.getSheet("survey")
         def aggregateHeaderMapping = [:]
@@ -262,11 +273,9 @@ public class OdkXLSFormUtil {
         //
         // Open Aggregate *.csv Export and process
         //
-        if (filename == null) {
-            filename = "/home/sgithens/code/openmrs-module-iedea/api/src/test/resources/importfiles/CCSPInitialForm_v7_results.csv"
-        }
+        Reader csvRawDataReader = iedeaUtil.getReader(datasource)
         
-        def reader = new CSVReader(new FileReader(filename))
+        def reader = new CSVReader(csvRawDataReader)
         def String[] headerLine = reader.readNext()
         def String[] nextLine
         
