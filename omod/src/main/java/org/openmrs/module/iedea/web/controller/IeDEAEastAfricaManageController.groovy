@@ -89,15 +89,15 @@ public class  IeDEAEastAfricaManageController {
             dict.purgeAllConcepts()
         } 
         else if (op.equals("importCsvOp")) {
-            dict.importFromCSVFile(importCsvPath)
+            dict.importFromCSV("file://${importCsvPath}")
         }
         else if (op.equals("buildAmpathDictionary")) {
             dict.purgeAllConcepts()
-            dict.importFromCSVResource("/iedea-dictionaries/ampath-original-conceptDictionary161012_954.csv")
+            dict.importFromCSV("classpath:///iedea-dictionaries/ampath-original-conceptDictionary161012_954.csv")
         }
         else if (op.equals("buildFacesDictionary")) {
             dict.purgeAllConcepts()
-            dict.importFromCSVResource("/iedea-dictionaries/faces-original-conceptDictionary28912_1116.csv")
+            dict.importFromCSV("classpath:///iedea-dictionaries/faces-original-conceptDictionary28912_1116.csv")
         }
         else {
             System.out.println("IeDEA: Unknown Operation");
