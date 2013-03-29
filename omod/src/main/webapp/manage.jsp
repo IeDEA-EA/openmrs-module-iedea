@@ -68,6 +68,11 @@
         <input id="CCSPInitialForm" type="radio" name="importEncounterType" value="CCSPInitialForm" />
         <label for="CCSPInitialForm">CCSPInitialForm</label>        
 
+        <h3>Override Encounter UUIDs</h3>
+        <input id="overrideYes" type="radio" name="overrideEncUUID" value="true" />
+        <label for="overrideYes">Yes</label>
+        <input id="overrideNo" type="radio" name="overrideEncUUID" value="false" selcted="selected"/>
+        <label for="overrideNo">No</label>
         <br/><br/>
         <input type="submit" value="Submit operation" />
       </form>
@@ -83,8 +88,8 @@
   </div>
   <div id="tabs-5">
     <h2>Debugging In Progress</h2>
-    <form method="POST" action="importConceptDictionaryCSV.form">
-      <input type="submit" value="Import CSV Dictionary" />
+    <form method="POST" action="debug.form">
+      <input type="submit" value="Debug Test" />
     </form>
     <br/>
 

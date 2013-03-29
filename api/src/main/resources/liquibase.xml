@@ -8,7 +8,7 @@
       for a list of supported elements and attributes
   -->
 
-  <changeSet author="sgithens" id="20120919-1427">
+  <changeSet author="sgithens" id="20130113-1411">
     <comment>ODK Import Log</comment>
     <createTable tableName="iedea_odkimportlog">
       <column name="id" type="int" autoIncrement="true">
@@ -17,6 +17,11 @@
       <column name="uuid" type="varchar(38)" />
       <column name="status" type="varchar(255)" />
       <column name="message" type="varchar(255)" />
+      <column name="started" type="date" />
+      <column name="finished" type="date" />
+      <column name="lastAttempt" type="date" />
+      <column name="importProfile" type="varchar(255)" />
+      <column name="createdNewPatient" type="boolean" />
     </createTable>
   </changeSet>
   

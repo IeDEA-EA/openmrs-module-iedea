@@ -42,11 +42,24 @@ public class  IeDEAEastAfricaServiceTest extends BaseModuleContextSensitiveTest 
 
     @Test
     public void testLogImportDao() {
+        def dao = getIeDEA().getDao()
         assertEquals("Initial size of table should be zero.", 
                 getIeDEA().getDao().getImportLogCount(), 0);
         ImportLogItem log = new ImportLogItem("12345", "IN PROGRESS", "Ok");
-        getIeDEA().getDao().saveOrUpdate(log);
-        assertEquals("Inserted 1 row.", getIeDEA().getDao().getImportLogCount(), 1);
+        dao.saveOrUpdate(log);
+        assertEquals("Inserted 1 row.", dao.getImportLogCount(), 1);
+                
+        ImportLogItem log2 = new ImportLogItem("67890", "IN PROGRESS", "Ok")
+        def uuidString = "flksajfopqiew3141341qwerwq"
+        log2.uuid = uuidString
+        dao.saveOrUpdate(log2)
+        def log2id = log2.id
+        
+        ImportLogItem log3 = dao.getLogItemByUUID(uuidString)
+        assertEquals("Id should be the same for item with uuid.", log2id, log3.id)
+        
+        def logs = dao.getAllLogs();
+        assertEquals("There should be 2 logs now.", logs.size(), 2)
     }
 
     private String getTestImportDirectory() {

@@ -27,6 +27,11 @@
               length="255" />
     <property name="message" type="java.lang.String" column="message"
               length="255" />
+    <property name="started" type="java.util.Date" column="started" />
+    <property name="finished" type="java.util.Date" column="finished" />
+    <property name="lastAttempt" type="java.util.Date" column="lastAttempt" />
+    <property name="importProfile" type="java.lang.String" column="importProfile" />
+    <property name="createdNewPatient" type="java.lang.Boolean" column="createdNewPatient" />
   </class>
 
 </hibernate-mapping>

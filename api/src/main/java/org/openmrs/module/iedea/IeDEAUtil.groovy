@@ -1,6 +1,19 @@
 package org.openmrs.module.iedea
 
+import org.openmrs.module.ModuleFactory
+
 public class IeDEAUtil {
+    def moduleClassLoader
+       
+    public IeDEAUtil() {
+        moduleClassLoader = ModuleFactory.getModuleClassLoader("iedea")
+    }
+    
+    def InputStream getResourceAsStream(path) {
+        println("IeDEAUtil.getResourceAsStream: ${path}")
+        URL url = moduleClassLoader.findResource(path)
+        return url.openStream()
+    }
 
     /*
      * Get's a reader using a path with a filesystem type. At the moment, you
@@ -20,19 +33,22 @@ public class IeDEAUtil {
             return new FileReader(path.substring(7)) 
         }
         else if (path.startsWith("classpath://")) {
-            return new InputStreamReader(path.getClass().getResourceAsStream(path.substring(12)))
+            return new InputStreamReader(getResourceAsStream(path.substring(12)))
         }
         else {
             throw new IllegalArgumentException()
         }
     }
     
+    /*
+     * See comments above for getReader
+     */
     public InputStream getInputStream(path) {
         if (path.startsWith("file://")) {
             return new FileInputStream(path.substring(7))
         }
         else if (path.startsWith("classpath://")) {
-            return path.getClass().getResourceAsStream(path.substring(12))
+            return getResourceAsStream(path.substring(12))
         }
         else {
             throw new IllegalArgumentException()

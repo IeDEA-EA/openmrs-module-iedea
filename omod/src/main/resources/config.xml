@@ -19,6 +19,10 @@
 	<!-- Module Activator -->
 	<activator>${project.parent.groupId}.${project.parent.artifactId}.IeDEAEastAfricaActivator</activator>
 	
+	<!-- Required Modules -->
+	<!-- <require_modules> -->
+	<!--     <require_module version="0.7.3.1">org.openmrs.module.reporting</require_module> -->
+	<!-- </require_modules> -->
 	
 	<!-- Adds link to admin page -->
 	<extension>

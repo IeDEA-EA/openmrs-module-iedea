@@ -13,8 +13,11 @@
  */
 package org.openmrs.module.iedea.api.db.hibernate;
 
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.openmrs.module.iedea.ImportLogItem;
 import org.openmrs.module.iedea.api.db.IeDEAEastAfricaDAO;
@@ -24,16 +27,16 @@ import org.openmrs.module.iedea.api.db.IeDEAEastAfricaDAO;
  */
 public class HibernateIeDEAEastAfricaDAO implements IeDEAEastAfricaDAO {
     protected final Log log = LogFactory.getLog(this.getClass());
-	
+
     private SessionFactory sessionFactory;
-	
+
     /**
      * @param sessionFactory the sessionFactory to set
      */
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-    
+
     /**
      * @return the sessionFactory
      */
@@ -42,14 +45,34 @@ public class HibernateIeDEAEastAfricaDAO implements IeDEAEastAfricaDAO {
     }
 
     @Override
-	public int getImportLogCount() {
+    public int getImportLogCount() {
         Long i = (Long) sessionFactory.getCurrentSession().createQuery(
-                                                                       "select count(*) from ImportLogItem").uniqueResult();
+                "select count(*) from ImportLogItem").uniqueResult();
         return i.intValue();
     }
 
     @Override
-	public void saveOrUpdate(ImportLogItem item) {
+    public void saveOrUpdate(ImportLogItem item) {
         sessionFactory.getCurrentSession().saveOrUpdate(item);
+    }
+
+    @Override
+    public List<ImportLogItem> getAllLogs() {
+        Query q = sessionFactory.getCurrentSession().createQuery("select log from ImportLogItem log");
+        return q.list();
+    }
+
+    @Override
+    public ImportLogItem getLogItemByUUID(String uuid) {
+        Query q = sessionFactory.getCurrentSession().createQuery("select log from ImportLogItem log where log.uuid = :uuid");
+        q.setParameter("uuid", uuid);
+        return (ImportLogItem) q.uniqueResult();
+    }
+
+    @Override
+    public ImportLogItem getLotItemById(int id) {
+        Query q = sessionFactory.getCurrentSession().createQuery("select log from ImportLogItem where log.id = :id");
+        q.setParameter("id", id);
+        return null;
     }
 }

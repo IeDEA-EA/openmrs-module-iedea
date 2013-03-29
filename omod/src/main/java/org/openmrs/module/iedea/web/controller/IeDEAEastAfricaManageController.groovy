@@ -32,6 +32,8 @@ import org.openmrs.module.iedea.ConfigParser;
 import org.openmrs.module.iedea.DictionaryCSVImport;
 import org.openmrs.module.iedea.ImportUtil;
 import org.openmrs.module.iedea.OdkXLSFormUtil;
+import org.openmrs.module.iedea.PMTCTReporting
+import org.openmrs.web.WebConstants
 
 /**
  * The main controller.
@@ -63,6 +65,7 @@ public class  IeDEAEastAfricaManageController {
         model.addAttribute("conceptCount", Context.getConceptService().getAllConcepts().size());
         model.addAttribute("user", Context.getAuthenticatedUser());
 
+        println("SWG Newly reloaded Groovy Script")
         ConfigParser cp = new ConfigParser();
         cp.getEntireConfig();
     }
@@ -93,11 +96,11 @@ public class  IeDEAEastAfricaManageController {
         }
         else if (op.equals("buildAmpathDictionary")) {
             dict.purgeAllConcepts()
-            dict.importFromCSV("classpath:///iedea-dictionaries/ampath-original-conceptDictionary161012_954.csv")
+            dict.importFromCSV("classpath://iedea-dictionaries/ampath-original-conceptDictionary161012_954.csv")
         }
         else if (op.equals("buildFacesDictionary")) {
             dict.purgeAllConcepts()
-            dict.importFromCSV("classpath:///iedea-dictionaries/faces-original-conceptDictionary28912_1116.csv")
+            dict.importFromCSV("classpath://iedea-dictionaries/faces-original-conceptDictionary28912_1116.csv")
         }
         else {
             System.out.println("IeDEA: Unknown Operation");
@@ -106,7 +109,30 @@ public class  IeDEAEastAfricaManageController {
         RedirectView rv = new RedirectView("/openmrs/module/iedea/manage.form");
         return rv;
     }
-
+            
+    @RequestMapping(value = "/module/iedea/ccspImportOperation.form",
+        method = RequestMethod.POST)
+    public RedirectView ccspImportOperation(
+        @RequestParam("ccspImportFilePath") String ccspImportFilePath,
+        @RequestParam("importProfile") String importProfile,
+        @RequestParam("importEncounterType") String importEncounterType,
+        @RequestParam("overrideEncUUID") boolean overrideEncUUID
+        ) {
+        OdkXLSFormUtil odk = new OdkXLSFormUtil();
+        String dataSource = "file://${ccspImportFilePath}"
+        String xlsFormDataSource
+        if (importProfile == "facesInitial") {
+            // For some reason I think we need to leave the front slash off
+            xlsFormDataSource = "classpath://faces-xlsforms/CCSPS08_ElectronicInitialVisitForm_v7.xls"
+        }
+        else {
+            throw new IllegalArgumentException("Unknown Profile Mapping")
+        }
+        odk.runOdkImportForOneFile(dataSource,xlsFormDataSource,importEncounterType,overrideEncUUID)
+        RedirectView rv = new RedirectView("/openmrs/module/iedea/manage.form");
+        return rv;
+    }
+    
     @RequestMapping(value = "/module/iedea/entireWorkflowTest.form",
             method = RequestMethod.POST)
     public RedirectView entireWorkflowTest(Model model) {
@@ -116,7 +142,15 @@ public class  IeDEAEastAfricaManageController {
         RedirectView rv = new RedirectView("/openmrs/module/iedea/manage.form");
         return rv;	    
     }
-    
+
+    @RequestMapping(value = "/module/iedea/debug.form",
+            method = RequestMethod.POST)
+    public RedirectView debug(Model model, HttpSession session) {
+        session.setAttribute(WebConstants.OPENMRS_MSG_ATTR, "Totally did some CCSP Stuff")
+        RedirectView rv = new RedirectView("/openmrs/module/iedea/manage.form");
+        return rv;
+    }
+        
     @RequestMapping(value = "/module/iedea/odkImportOperation.form",
             method = RequestMethod.POST)
     public RedirectView odkImportOperation(Model model,

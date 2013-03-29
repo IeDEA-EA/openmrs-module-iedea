@@ -3,16 +3,19 @@ package org.openmrs.module.iedea
 import au.com.bytecode.opencsv.CSVReader
 import org.apache.poi.ss.usermodel.Workbook
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
+import org.openmrs.EncounterType
 import org.openmrs.Patient
 import org.openmrs.Encounter
 import org.openmrs.PatientIdentifier
 import org.openmrs.Location
 import org.openmrs.Obs
+import org.openmrs.api.EncounterService
 import org.openmrs.api.context.Context
 import org.openmrs.module.iedea.api.IeDEAEastAfricaService
+import org.openmrs.module.iedea.api.db.IeDEAEastAfricaDAO
 import org.apache.commons.logging.Log
 import org.apache.commons.logging.LogFactory
-
+import java.util.UUID
 
 public class OdkImportRow {
     def uuid, patient 
@@ -39,10 +42,12 @@ public class OdkXLSFormUtil {
     def DEBUG_BLANK_ENCOUNTER_UUIDS = true
     
     def log = LogFactory.getLog(this.getClass());
-    def iedeaService;
+    def iedeaService
+    private IeDEAEastAfricaDAO iedeaDao;
 
     public OdkXLSFormUtil() {
         iedeaService = Context.getService(IeDEAEastAfricaService.class)
+        iedeaDao = iedeaService.getDao()
     }
 
     /**
@@ -94,7 +99,7 @@ public class OdkXLSFormUtil {
             throw new IllegalArgumentException("Must include an XLS Form Data Source to compute mappings with.")
         }
         def iedeaUtil = new IeDEAUtil()
-        def stream = iedeaUtil.getInputStream(xlsDataSource) 
+        def stream = iedeaUtil.getInputStream(xlsDataSource)
         def workbook = new HSSFWorkbook(stream)
         return workbook
     }
@@ -106,7 +111,8 @@ public class OdkXLSFormUtil {
         pLocation.name = "My Home"
         def savedLocation = locationServ.saveLocation(pLocation)
         def pIdentType = patientServ.getPatientIdentifierType(2)
-        def pIdent = new PatientIdentifier("newidentifer", pIdentType, savedLocation)
+        def uuid = UUID.randomUUID()
+        def pIdent = new PatientIdentifier(uuid.toString(), pIdentType, savedLocation)
         
         def p = new Patient()
         p.addIdentifier(pIdent)
@@ -180,7 +186,10 @@ public class OdkXLSFormUtil {
      * 
      * @param odkImportRow The row from the ODK Aggregate export to import.
      */
-    def sendOdkImportRowToOpenMRS(OdkImportRow odkImportRow) {
+    def sendOdkImportRowToOpenMRS(OdkImportRow odkImportRow, EncounterType encType, boolean overrideEncUUID=false) {
+        /* Start Process */
+        // TODO Start Log Import Item
+        
         def conceptServ = Context.getConceptService()
         def obsServ = Context.getObsService()
         def locServ = Context.getLocationService()
@@ -197,12 +206,16 @@ public class OdkXLSFormUtil {
         //def patient = createPatient()
         def patientServ = Context.getPatientService()
         def patient = patientServ.getPatients(odkImportRow.patient)[0]
+        if (patient == null) {
+            patient = createPatient()
+        }
         
-        def encType = importUtil.getIedeaEncounterType("facesInitial")
+        // Let's move this decision to a higher function
+        // def encType = importUtil.getIedeaEncounterType("facesInitial")
         
         def encounter = createEncounter(patient,encType)
         
-        if (!DEBUG_BLANK_ENCOUNTER_UUIDS) {
+        if (!overrideEncUUID) {
             encounter.setUuid(odkImportRow.uuid)
         }
         encounter.setLocation(location)
@@ -221,11 +234,12 @@ public class OdkXLSFormUtil {
         def encServ = Context.getEncounterService()
         encServ.saveEncounter(encounter);
         
+        // TODO Save Log input item as finished
     }
     
-    public void sendOdkImportRowsToOpenMRS(rows) {
+    public void sendOdkImportRowsToOpenMRS(rows,encType,overrideEncUUID=false) {
         rows.each {
-            sendOdkImportRowToOpenMRS(it)
+            sendOdkImportRowToOpenMRS(it,encType,overrideEncUUID)
         }
     }
 
@@ -238,9 +252,13 @@ public class OdkXLSFormUtil {
      * these include the data that is being imported. So it can be either a 
      * filename on the local file system, or it can be a classpath resource.
      * 
+     * @param dataSource The CSV ODK Export file/classpath location.
+     * @param xslFormDataSource The file/classpath location of the XLS ODK 
+     * mappings.
+     * 
      * @return
      */
-    def List<OdkImportRow> parseAggregateExport(datasource,xlsFormDataSource) {
+    def List<OdkImportRow> parseAggregateExport(dataSource,xlsFormDataSource) {
         def iedeaUtil = new IeDEAUtil()
         
         //
@@ -273,7 +291,7 @@ public class OdkXLSFormUtil {
         //
         // Open Aggregate *.csv Export and process
         //
-        Reader csvRawDataReader = iedeaUtil.getReader(datasource)
+        Reader csvRawDataReader = iedeaUtil.getReader(dataSource)
         
         def reader = new CSVReader(csvRawDataReader)
         def String[] headerLine = reader.readNext()
@@ -288,7 +306,7 @@ public class OdkXLSFormUtil {
             def odkEncounter = new OdkImportRow(uuid)
             nextLine.eachWithIndex { val, idx ->
                 def curCsvHeader = headerLine[idx]
-                def xlsformInfo = aggregateHeaderMapping[curCsvHeader];
+                def xlsformInfo = aggregateHeaderMapping[curCsvHeader]
                 if (xlsformInfo != null) {                    
                     turnOdkAggregateCellIntoObservation(val, xlsformInfo, odkEncounter)
                 }
@@ -299,9 +317,11 @@ public class OdkXLSFormUtil {
         return togo
     }
     
-    public void runOdkImportForOneFile(String filepath) {
-        def rows = parseAggregateExport(filepath)
-        sendOdkImportRowsToOpenMRS(rows);
+    public void runOdkImportForOneFile(String dataSource, String xlsFormSource, String encTypeName, boolean overrideEncUUID = false) {
+        EncounterService encServ = Context.getEncounterService()
+        EncounterType encType = encServ.getEncounterType(encTypeName)
+        def rows = parseAggregateExport(dataSource,xlsFormSource)
+        sendOdkImportRowsToOpenMRS(rows, encType, overrideEncUUID);
     }
     
     public void runEntireImportProcess() {
